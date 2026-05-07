@@ -1,0 +1,14 @@
+#week11-1a.py
+#872.
+class Solution:
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        a=[]
+        def helper(root):
+            if root.left==None and root.right==None:
+                a.append(root.val)
+            if root.left:  helper(root.left)
+            if root.right: helper(root.right)
+        helper(root1)
+        a,b=[],a
+        helper(root2)
+        return a==b
